@@ -5,12 +5,9 @@ require('configuracion.php'); //Se conecta a la base de datos
 require('funciones.php'); //Llama las funciones que incluyen el template
 include('header1.html');//Coloca el encabezado de la pagina
 
-$area=$_GET["area"];
-
-$personas=$_post["personas"];
-$autor=$_POST["autor"];
-
-if ($area==''){$area="Todas";}
+if (isset($_GET['area'])) { $area = $_GET["area"];} else { $area = 'Todas';}
+if (isset($_POST['personas'])) { $personas= $_POST["personas"]; }
+if (isset($_POST['autor'])) { $personas= $_POST["autor"]; }
 
 
 
@@ -24,9 +21,9 @@ $sql = "SELECT id, seccion, autor, titulo, fecha, respuestas, ult_respuesta, ven
 if(!empty($autor))
 {
     $sql.= "cumplimiento FROM foro WHERE autor= '$autor' AND identificador=0 AND finalizado=0 ORDER BY vence ASC";
-    print "<p ALIGN='CENTER'>".$autor."<P>"; 
+    print "<p ALIGN='CENTER'>".$autor."<P>";
 }
-ElseIf ($area=="Todas")
+elseif ($area=="Todas")
 {
     $sql.= "cumplimiento FROM foro WHERE identificador=0 AND finalizado=0 ORDER BY vence ASC";
 }
@@ -55,7 +52,7 @@ if(mysql_num_rows($rs)>0)
 
     while($row = mysql_fetch_assoc($rs))
 	{
-        $cumplimiento=$row[cumplimiento]*100;
+        $cumplimiento=$row['cumplimiento']*100;
         if ($cumplimiento<=90)
         {
             $color='#FFE0E0';
@@ -69,7 +66,7 @@ if(mysql_num_rows($rs)>0)
             $color= '#B8FFB8';
         }
 
-        if($row[finalizado]==1)
+        if($row['finalizado']==1)
         {
             $color = '#B8FFB8';
         }
@@ -78,21 +75,21 @@ if(mysql_num_rows($rs)>0)
             $row["color"] = $color;
         }
 
-        $falta=(strtotime($row[vence])-time())/86400;
+        $falta=(strtotime($row['vence'])-time())/86400;
 
 
 
         //mostrarTemplate($template, $row);
 
         ?>
-			
+
         <table width="90%" border="0" align="center" cellpadding="2" cellspacing="2" bgcolor="<?php print $color ?>">
 
             <tr>
                 <td width="15%" align="center">
                     <a href="foro.php?id=<?php print $row[id]; ?>">
                         <font color="black">
-                        <?php print $row[seccion]; ?>
+                        <?php print $row['seccion']; ?>
                         </font>
                     </a>
                 </td>
@@ -102,7 +99,7 @@ if(mysql_num_rows($rs)>0)
 
                     <a href="foro.php?id=<?php print $row[id]; ?>">
                         <font color="black">
-                        <?php print $row[titulo]; ?>
+                        <?php print $row['titulo']; ?>
                         </font>
                     </a>
 
@@ -110,9 +107,9 @@ if(mysql_num_rows($rs)>0)
 
                 <td width="15%" align="center">
                     <font size="-2" color="black"><b>
-                    <?php print $row[autor]; ?>
+                    <?php print $row['autor']; ?>
                     </b><br>
-                    Cump: <?php if ($row[finalizado]==1)
+                    Cump: <?php if ($row['finalizado']==1)
                                 {
                                     print "Cumplido";
                                 }
@@ -126,16 +123,16 @@ if(mysql_num_rows($rs)>0)
                 </td>
                 <td width="15%" align="center">
                     <font size="-2" color="black"><b>
-                    <?php print $row[respuestas]; ?>
+                    <?php print $row['respuestas']; ?>
                     </b><br>
                     <?php
-                        if ($row[finalizado]==1)
+                        if ($row['finalizado']==1)
                         {
                             print "------------";
                         }
                         Else
                         {
-                            print "Ult. nota:".$row[fecha];
+                            print "Ult. nota:".$row['fecha'];
                         }
                     ?>
 
@@ -143,7 +140,7 @@ if(mysql_num_rows($rs)>0)
 
                 <td width="15%" align="center">
                     <font size="2" color="black"><b>
-                    Fin: <?php print $row[vence]; ?>
+                    Fin: <?php print $row['vence']; ?>
                     </b><br>
 
 
@@ -153,9 +150,9 @@ if(mysql_num_rows($rs)>0)
 
                     <b>
                     <?php
-                        if ($row[finalizado]==1)
+                        if ($row['finalizado']==1)
                         {
-                            print "Fin:".$row[fecha];
+                            print "Fin:".$row['fecha'];
                         }
                         Else
                         {
