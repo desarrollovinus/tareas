@@ -1,0 +1,62 @@
+<table width="90%" border="0" cellspacing="2" cellpadding="2">
+    <form name="f" action="agregar.php" method="post">
+        <input type="hidden" name="identificador" value="<?php $id ?>">
+        <tr>
+             <td width="30%" align="right">
+                Area
+            </td>
+            <td>
+                <input type="text" name="area" value="<?php $area ?>">
+            </td>
+        </tr>
+        <tr>
+            <td width="30%" align="right">
+                Responsable
+            </td>
+            <td>
+                <input type="text" name="autor" value="<?php $autor ?>">
+            </td>
+        </tr>
+        <tr>
+            <td width="30%" align="right">
+                Actividad
+            </td>
+            <td>
+                <input type="text" name="titulo" value="<?php $titulo ?>">
+            </td>
+        </tr>
+        <tr>
+             <td width="30%" align="right">
+                Avance
+            </td>
+            <td>
+            <input type="text" name="avance" value="<?php $avance ?>">
+            </td>
+        </tr>
+        <tr>
+             <td width="30%" align="right">
+                Vencimiento
+            </td>
+            <td>
+                <input type="date" name="vence" value="<?php $vence ?>">
+            </td>
+        </tr>
+
+        <tr>
+            <td width="30%" align="right">
+                Descripción
+            </td>
+            <td>
+                <textarea name="mensaje" cols="60" rows="10">
+                    <?php $mensaje ?>
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="submit" value="Grabar">
+                <input type="submit" name="fin" value="Terminado">
+            </td>
+        </tr>
+    </form>
+</table>

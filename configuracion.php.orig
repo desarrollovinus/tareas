@@ -1,0 +1,9 @@
+<?php
+$bd_host = "bd_host";
+$bd_usuario = "bd_usuario";
+$bd_password = "bd_usuario";
+$bd_base = "bd_base";
+
+$con = mysql_connect($bd_host, $bd_usuario, $bd_password);
+mysql_select_db($bd_base, $con);
+?>

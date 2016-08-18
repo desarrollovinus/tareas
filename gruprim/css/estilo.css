@@ -1,0 +1,145 @@
+@charset "utf-8";
+body {
+    font-family: "New Century Schoolbook", Times, serif !important;
+    background:#B1C0C5 url(../img/fondo.jpg) repeat-x top center;
+}
+input[type=text], input[type=password], select{
+	width:250px;
+	border-radius:7px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+	
+	font-size: 15px;
+}
+input[type=submit]{
+	width:220px;
+	height:45px;
+}
+label{
+	color:blue;
+}
+select {
+	cursor:pointer;
+}
+select option{
+    padding:3px;
+    margin: 0;
+    border:none;
+    border-radius:4px;
+    outline:none;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+}
+a.botonCerrar{
+	padding-top:0.5em;
+	width:300px;
+	height:30px;
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font-size:18px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+
+	border:1px solid #B7B7B7;
+	color:#FFFFFF;	
+	background: #980C10;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ED1C24), to(#AA1317));
+	background:-moz-linear-gradient(center top , #ED1C24, #AA1317) repeat scroll 0 0 transparent;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ED1C24', endColorstr='#AA1317');	
+}
+a.botonCerrar:hover{
+	background: #AA1317;
+	background: -webkit-gradient(linear, left top, left bottom, from(#AA1317), to(#ED1C24));
+	background:-moz-linear-gradient(center top , #AA1317, #ED1C24) repeat scroll 0 0 transparent;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#AA1317', endColorstr='#ED1C24');	
+	color:#FADDDE;
+}
+.clear{
+	clear:both;
+}
+.centrar_cabezote
+{
+	position: absolute;
+	/*nos posicionamos en el centro del navegador*/
+	top:25%;
+	left:50%;
+	/*determinamos una anchura*/
+	width:400px;
+	/*indicamos que el margen izquierdo, es la mitad de la anchura*/
+	margin-left:-200px;
+	/*determinamos una altura*/
+	height:32px;
+	/*indicamos que el margen superior, es la mitad de la altura*/
+	margin-top:-50px;
+	/*border:1px solid #808080;*/
+	padding:5px;
+	/*border: 1px dashed #000000;*/
+	font-family: "New Century Schoolbook",Times,serif;
+}
+.centrar
+{
+	position: absolute;
+	/*nos posicionamos en el centro del navegador*/
+	top:50%;
+	left:50%;
+	/*determinamos una anchura*/
+	width:800px;
+	/*indicamos que el margen izquierdo, es la mitad de la anchura*/
+	margin-left:-400px;
+	/*determinamos una altura*/
+	height:225px;
+	/*indicamos que el margen superior, es la mitad de la altura*/
+	margin-top:-180px;
+	border:1px solid #808080;
+	padding:5px;
+	border: 1px dashed #000000;
+}
+.pequeno {
+	
+	height:60px;
+	width:150px !important;
+	text-align: center;
+}
+.mediano {
+	
+	height:60px;
+	width:210px !important;
+	text-align: center;
+}
+.grande {
+	height:35px;
+	text-align: center;
+}
+.tabla
+{
+	width:100%;
+}
+fieldset {
+	border-radius:10px;
+}
+.prettyLoader{
+	background: url(../img/prettyLoader/prettyLoader.png) top left no-repeat;
+	height:30px;position:absolute;
+	width:30px;
+	z-index:30000;
+}
+.prettyLoader img{
+	display:block;
+	margin:7px 0 0 7px;
+}
+.pl_ie6{
+	background-image: url(../img/prettyLoader/prettyLoader.gif);
+}
+.empty { color: gray; }
+.fieldset-reportes {
+	width: 600px;
+}
