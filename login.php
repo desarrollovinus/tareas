@@ -13,8 +13,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
      $usuario = mysqli_real_escape_string($db, $_POST['usuario']);
      $pass = md5(mysqli_real_escape_string($db, $_POST['pass']));
 
-     $sql = "SELECT Pk_Id_Usuario FROM usuarios WHERE Usuario = '$usuario' and Password = '$pass'";
-     $result = mysqli_query($db,$sql);
+     $sql = "SELECT
+        	    usuarios.Pk_Id_Usuario
+            FROM
+        	   usuarios
+            INNER JOIN permisos ON permisos.Fk_Id_Usuario = usuarios.Pk_Id_Usuario
+            INNER JOIN tbl_aplicaciones ON permisos.Fk_Id_Aplicacion = tbl_aplicaciones.Pk_Id_Aplicacion
+            WHERE
+            	tbl_aplicaciones.Pk_Id_Aplicacion = 8
+                AND usuarios.Usuario = '$usuario'
+                AND usuarios.`Password` = '$pass'";
+
+     $result = mysqli_query($db, $sql);
 
      $count = mysqli_num_rows($result);
 
@@ -60,7 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <div style = "margin:30px">
 
                <form action = "" method = "post">
-                  <label>Usaurio  :</label><input type = "text" name = "usuario" class = "box"/> <br /><br />
+                  <label>Usuario  :</label><input type = "text" name = "usuario" class = "box"/> <br /><br />
                   <label>Contraseña  :</label><input type = "password" name = "pass" class = "box" /><br/>
                   <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?= (isset($error)) ? $error : '' ; ?></div><br>
                   <input type = "submit" value = " Submit "/><br />
