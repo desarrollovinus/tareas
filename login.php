@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                   <label>Usuario  :</label><input type = "text" name = "usuario" class = "box"/> <br /><br />
                   <label>Contraseña  :</label><input type = "password" name = "pass" class = "box" /><br/>
                   <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?= (isset($error)) ? $error : '' ; ?></div><br>
-                  <input type = "submit" value = " Submit "/><br />
+                  <input type = "submit" value = " Entrar "/><br />
                </form>
 
             </div>
