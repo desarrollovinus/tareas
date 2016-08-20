@@ -34,7 +34,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['usuario'] = $usuario;
         header("location: index.php");
      }else {
-         $error = 'Error usuario y/o contraseña incorrectos';
+         $sql = "SELECT Pk_Id_Usuario FROM usuarios WHERE Usuario = '$usuario' and Password = '$pass'";
+         $result = mysqli_query($db, $sql);
+         $count = mysqli_num_rows($result);
+
+         if ($count == 1) {
+             $error = 'No Tiene los permisos necesarios para esta aplicacion';
+         } else {
+             $error = 'Error usuario y/o contraseña incorrectos';
+         }
      }
   }
   ?>
